@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Store</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- navbar start -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Online Store</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Переключатель навигации"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="#"
+                id="home-btn"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Category
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+                id="registerUser-modal"
+                >Register</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+                id="loginUser-modal"
+                >Login</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="#"
+                id="logoutUser-btn"
+                >Logout</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" id="showUsername">Username</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search..."
+              aria-label="Поиск"
+              id="search-inp"
+            />
+            <button class="btn btn-outline-dark" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- navbar end -->
+
+    <!-- admin panel start -->
+    <div class="w-100 justify-content-center text-center">
+      <div class="mt-5 d-flex flex-column w-100" id="admin-panel">
+        <h2>Admin panel</h2>
+        <input
+          type="text"
+          id="product-title"
+          placeholder="Title"
+          class="mb-2 w-50 m-auto"
+        />
+        <input
+          type="text"
+          id="product-price"
+          placeholder="Price"
+          class="mb-2 w-50 m-auto"
+        />
+        <input
+          type="text"
+          id="product-desc"
+          placeholder="Description"
+          class="mb-2 w-50 m-auto"
+        />
+        <input
+          type="text"
+          id="product-image"
+          placeholder="Image url"
+          class="mb-2 w-50 m-auto"
+        />
+        <input
+          type="text"
+          id="product-category"
+          placeholder="Category"
+          class="mb-2 w-50 m-auto"
+        />
+        <button class="btn btn-dark w-50 m-auto" id="add-product-btn">
+          Add Product
+        </button>
+        <button class="btn btn-dark w-50 m-auto save-changes-btn">
+          Save Changes
+        </button>
+      </div>
+    </div>
+    <!-- admin panel end -->
+
+    <!-- content start -->
+    <div
+      class="d-flex flex-wrap justify-content-center"
+      id="products-list"
+    ></div>
+    <!-- content end -->
+
+    <!-- pagination block -->
+    <div id="youtube">
+      <iframe
+        &autoplay="1."
+        width="800"
+        height="450"
+        src="https://www.youtube.com/embed/cpP-fCo8Dn4"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div class="d-flex w-100 justify-content-center pagination-block">
+      <a class="btn btn-dark m-1" href="#" aria-label="Previous" id="prev-page">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+      <a class="btn btn-dark m-1" href="#" aria-label="Next" id="next-page">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </div>
+    <!-- pagination block end -->
+
+    <!-- modal for users -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Account</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Закрыть"
+              id="btn-close-modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- for register -->
+            <div class="d-flex flex-column w-100" id="registerUser-block">
+              <h2>Register user</h2>
+              <input
+                type="text"
+                id="reg-username"
+                placeholder="Username"
+                class="mb-2 w-100 form-control"
+              />
+              <input
+                type="text"
+                id="reg-age"
+                placeholder="Age"
+                class="mb-2 w-100 form-control"
+              />
+              <input
+                type="text"
+                id="reg-password"
+                placeholder="Password"
+                class="mb-2 w-100 form-control"
+              />
+              <input
+                type="text"
+                id="reg-passwordConfirm"
+                placeholder="Password confirmation"
+                class="mb-2 w-100 form-control"
+              />
+              <div>
+                <input type="checkbox" id="isAdmin" />
+                <label for="isAdmin">Admin</label>
+              </div>
+            </div>
+            <!-- for login -->
+            <div class="d-flex flex-column w-100" id="loginUser-block">
+              <h2>Login user</h2>
+              <input
+                type="text"
+                id="login-username"
+                placeholder="Username"
+                class="mb-2 w-100 form-control"
+              />
+              <input
+                type="text"
+                id="login-password"
+                placeholder="Password"
+                class="mb-2 w-100 form-control"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <!-- for register -->
+            <button type="button" class="btn btn-dark" id="registerUser-btn">
+              Register
+            </button>
+            <!-- for login -->
+            <button type="button" class="btn btn-dark" id="loginUser-btn">
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end modal for users -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
